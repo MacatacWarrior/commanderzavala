@@ -1,1 +1,1 @@
-commander:reportforduty
+worker: python czav.py
