@@ -1,1 +1,1 @@
-worker: python czav.py
+worker: czav.py
