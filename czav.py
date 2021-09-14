@@ -1,37 +1,46 @@
 import discord
+from discord.ext import commands
+import json
 import os
 
-client = discord.Client()
 
-@client.event 
+bot = commands.Bot(command_prefix="z$")
+bot.remove_command ("help")
+
+@bot.event
 async def on_ready():
-    print('Hello, guardian. {0.user} is ready for duty.'.format(client))
+    print("CZav is ready, Guardian.")
 
-@client.event
-  
-async def on_message(message):
-    if message.author == client.user:
-        return
+@bot.command(pass_context=True)
+async def help(ctx):
+    await ctx.send("https://sites.google.com/view/czavlist/home")
 
-    elif message.content.startswith('z$hello'):    
-        await message.channel.send('Hello, Guardian.')
+@bot.command(pass_context=True)
+async def valus(ctx):
+    await ctx.send("Whether we wanted it or not, we've stepped into a war with the Cabal on Mars. So let's get to taking out their command, one by one. Valus Ta'aurc. From what I can gather he commands the Siege Dancers from an Imperial Land Tank outside of Rubicon. He's well protected, but with the right team, we can punch through those defenses, take this beast out, and break their grip on Freehold.")
 
-    elif message.content.startswith('z$stasis'):    
-        await message.channel.send('Guardian, the darkness is a dangerous force. Stasis is no exeption. I do not approve of its use, but if its for the greater good then I guess I have to.')
+@bot.command(pass_context=True)
+async def hello(ctx):
+    await ctx.send("Hello, Guardian.")
 
-    elif message.content.startswith('z$valus'):    
-        await message.channel.send('Whether we wanted it or not, weve stepped into a war with the Cabal on Mars. So lets get to taking out their command, one by one. Valus Taaurc. From what I can gather he commands the Siege Dancers from an Imperial Land Tank outside of Rubicon. Hes well protected, but with the right team, we can punch through those defenses, take this beast out, and break their grip on Freehold.')
+@bot.command(pass_context=True)
+async def tokens(ctx):
+    await ctx.send("No tokens. Only reputation.")
 
-    elif message.content.startswith('z$indeed'):    
-        await message.channel.send('Indeed.')
+@bot.command(pass_context=True)
+async def pnotes(ctx):
+    await ctx.send("https://sites.google.com/view/czavlist/patch-notes")
 
-    elif message.content.startswith('z$light'):    
-        await message.channel.send('Guardian, if you got your light back then we have some hope against the Red Legion.')
+@bot.command(pass_context=True)
+async def stasis(ctx):
+    await ctx.send("Guardians must not use Stasis. That is the Vanguard's official stance on this.")
 
-    elif message.content.startswith('z$pnotes'):    
-        await message.channel.send('https://sites.google.com/view/czavlist/patch-notes')
+@bot.command(pass_context=True)
+async def fireteam(ctx):
+    await ctx.send("I need my fireteam. I need Ikora and Cayde.")
 
-    elif message.content.startswith('z$cmds'):    
-        await message.channel.send('https://sites.google.com/view/czavlist/home')
-
-client.run(os.getenv('TOKEN'))
+@bot.command(pass_context=True)
+async def indeed(ctx):
+    await ctx.send("Indeed.")
+    
+bot.run("ODU3ODEzMzU1MTI4Njg0NTg1.YNVC8Q.OBVXy8Tr9BwzUCQhnnBaRdbWyWs")
