@@ -43,4 +43,4 @@ async def fireteam(ctx):
 async def indeed(ctx):
     await ctx.send("Indeed.")
     
-bot.run("ODU3ODEzMzU1MTI4Njg0NTg1.YNVC8Q.OBVXy8Tr9BwzUCQhnnBaRdbWyWs")
+bot.run("token")
